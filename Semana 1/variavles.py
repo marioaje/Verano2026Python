@@ -24,12 +24,30 @@
 
 
 
-password = ""
+# password = ""
 
-while password != "123":
-    print("Ingrese en el while")
-    password = input("Ingrese su password: ")
+# while password != "123":
+#     print("Ingrese en el while")
+#     password = input("Ingrese su password: ")
 
 
-if password == "123":
-    print("Sistema de incio")
+# if password == "123":
+#     print("Sistema de incio")
+
+
+
+# def nombrefuncion(a,b):
+#     resultado  = a + b
+#     print(resultado)
+
+
+
+def nombrefuncion(a,b):
+    resultado  = a + b
+    return resultado
+
+
+
+suma = nombrefuncion(3,5) 
+print ( nombrefuncion(3,5) )
+print (suma)
