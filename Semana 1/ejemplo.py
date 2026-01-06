@@ -20,7 +20,8 @@ def esMayorEdad(edad):
 
 #Programa inicial
 
-genero, cedula, residencia, estadoCivil, edad = pidaDatos()
+genero, cedula, residencia, estadoCivil = pidaDatos()
+#return genero, cedula, residencia, estadoCivil, edad
 
 mostrarGenero(genero)
 
