@@ -8,3 +8,6 @@ class calculadoraModell:
 
     def presntardatos(self):
         return "Haciendo operaciones con datoa: ", self.datoa, " con datob: ", self.datob    
+    #self = this
+    def sumar(self):
+        return self.datoa + self.datob

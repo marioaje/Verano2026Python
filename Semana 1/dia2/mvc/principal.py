@@ -19,6 +19,14 @@ def principal():
     #creemos el modelo
     modelo_calculadoraModell = _calculadoraController.agregardatos(datoa, datob)
 
+    print("\n=== Operaciones en MVC===")
+    print("1. Sumar")
+
+    opcion = int(input("Seleccione una operacion (1--#)"))
+
+    _calculadoraController.operaciones(modelo_calculadoraModell, opcion)
+
+
     _calculadoraController.presntardatos(modelo_calculadoraModell)
 
     #aca deberia llamar ....

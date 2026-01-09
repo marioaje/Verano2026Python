@@ -11,7 +11,7 @@ import view.calculadoraView as _calculadoraView #este se usa cuando son solo fun
 
 #calculadoraController.py
 class calculadoraController:
-
+    
     def agregardatos(self, datoa, datob):
         _calculadoraModell = calculadoraModell(datoa, datob)
         return _calculadoraModell
@@ -19,6 +19,14 @@ class calculadoraController:
     def presntardatos(self, _calculadoraModell):
         _calculadoraView.presntardatos(_calculadoraModell)
 
+    def operaciones(self, _calculadoraModell, opcion):
+        resultado = 0
+        if opcion == 1:            
+            resultado = calculadoraModell.sumar(_calculadoraModell)
+            _calculadoraView.mostraResultado("suma", resultado)
+
+        else:
+            print("Opcion invalida")    
 
 
 
