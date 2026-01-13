@@ -35,7 +35,7 @@ def borrarAlumno(nombre):
 
 def buscarDos(personas,nombre):
     if nombre in personas:
-     print("el usuario si esxiste")
+       print("el usuario si esxiste")
     else:
        print("el usuario no existe")
 
