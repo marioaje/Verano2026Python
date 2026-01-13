@@ -4,12 +4,16 @@
 #personas = [ {nombre, edad}, {nombre, edad }, {nombre, edad },{nombre, edad }]
 #class persona
 class persona:
+    idPersona = 1
+    
     def __init__(self, nombre, edad):
         self.nombre = nombre
         self.edad = edad
+        self.idPersona = persona.idPersona
+        persona.idPersona += 1
 
     def mostrarDato(self):
-        return "Nombre:",self.nombre,", edad:", self.edad
+        return "Nombre:",self.nombre,", edad:", self.edad, ", idPersona:", self.idPersona
     
     #seccion de gets
     def getnombre(self):
@@ -17,6 +21,9 @@ class persona:
     
     def getedad(self):
         return self.edad    
+    
+    def getidePersona(self):
+        return self.idPersona       
 #esta es la clase, archivo aparte
 
 
@@ -27,18 +34,20 @@ textoRespuesta = ""
 def mostrar():
    print("Los usuarios del sistema: ", personasArreglo)
    for items in personasArreglo:
-       #print(items.mostrarDato())
+        print(items.mostrarDato())
         resultadoTemporal = "El nombre es:", items.getnombre()
-        print(resultadoTemporal)
+        #print(resultadoTemporal)
+        #print(items)
    
 #volvemos a pasar la variable del tipo arreglo
 def buscar(usuarioNombre):
     #este if cambia, debido a que deben buscar dentro de los getdelnombre
-    if usuarioNombre in personasArreglo:
-        indice = personasArreglo.index(usuarioNombre)
-    else:
-        indice =-1
-    return indice  
+    for items in personasArreglo:
+        if items.getnombre() == usuarioNombre:
+            return items.getnombre()
+        else:
+            return None
+
 
 def borrar(nombre):
     #un if para verificar y eliminar
@@ -66,6 +75,9 @@ edad = input("Ingrese la edad de la persona: ")
 
 insertar(nombre, edad)
 mostrar()
+
+
+print(buscar(nombre))
 #La seccion de buscar
 #La seccion de modificar
 #La seccion de borrar
