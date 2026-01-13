@@ -31,8 +31,9 @@ def mostrar():
         resultadoTemporal = "El nombre es:", items.getnombre()
         print(resultadoTemporal)
    
-
+#volvemos a pasar la variable del tipo arreglo
 def buscar(usuarioNombre):
+    #este if cambia, debido a que deben buscar dentro de los getdelnombre
     if usuarioNombre in personasArreglo:
         indice = personasArreglo.index(usuarioNombre)
     else:
