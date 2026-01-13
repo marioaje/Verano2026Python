@@ -38,7 +38,7 @@ def buscar(usuarioNombre):
         indice = personasArreglo.index(usuarioNombre)
     else:
         indice =-1
-    return indice
+    return indice  
 
 def borrar(nombre):
     #un if para verificar y eliminar
