@@ -30,6 +30,7 @@ class persona:
 
     def setedad(self, edad):
         self.edad = edad
+        
 #esta es la clase, archivo aparte
 
 
