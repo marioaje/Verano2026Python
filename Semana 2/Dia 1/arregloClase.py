@@ -23,7 +23,13 @@ class persona:
         return self.edad    
     
     def getidePersona(self):
-        return self.idPersona       
+        return self.idPersona    
+
+    def setnombre(self, nombre):
+        self.nombre = nombre
+
+    def setedad(self, edad):
+        self.edad = edad
 #esta es la clase, archivo aparte
 
 
@@ -42,12 +48,21 @@ def mostrar():
 #volvemos a pasar la variable del tipo arreglo
 def buscar(usuarioNombre):
     #este if cambia, debido a que deben buscar dentro de los getdelnombre
-    for items in personasArreglo:
+    for items in personasArreglo:        
         if items.getnombre() == usuarioNombre:
-            return items.getnombre()
-        else:
-            return None
+            return items.getidePersona()
+        # else:
+        #     return -1
+    return -1    
 
+def buscarId(id):
+    #este if cambia, debido a que deben buscar dentro de los getdelnombre
+    for items in personasArreglo:        
+        if items.getidePersona() == id:
+            return items
+        # else:
+        #     return -1
+    return None
 
 def borrar(nombre):
     #un if para verificar y eliminar
@@ -60,7 +75,13 @@ def borrar(nombre):
     print("El nombre: ",nombre," fue Eliminado")
 
 def modificar(nombreModificar, indice):
-   personasArreglo[indice] = nombreModificar
+   elementoPersona = buscarId(indice)#traemos el objeto desde el arreglo
+   if elementoPersona:
+       elementoPersona.setnombre(nombreModificar)
+       print("Modificacion exitosa")
+   else:
+       print("Se cayo la demo")  
+   
 
 def insertar(nombre, edad):
     nuevosDatos = persona(nombre, edad)
@@ -70,14 +91,29 @@ def insertar(nombre, edad):
 
 ###################################Aca va el sistema
 
-nombre = input("Ingrese el nombre de la persona: ")
-edad = input("Ingrese la edad de la persona: ")
+# nombre = input("Ingrese el nombre de la persona: ")
+# edad = input("Ingrese la edad de la persona: ")
 
-insertar(nombre, edad)
+# insertar(nombre, edad)
+insertar("nombre", 28)
+insertar("Mrio", 28)
+insertar("Isaac", 88)
 mostrar()
 
 
-print(buscar(nombre))
+usuarioNombreModificar = input("Ingrese el usuario a buscar: ")
+posicion = buscar(usuarioNombreModificar)
+
+
+if posicion == -1:
+    textoRespuesta = "No encontro datos para", usuarioNombreModificar
+else:
+    nuevoNombre = input("Ingrese el nuevo nombre: ")
+    modificar(nuevoNombre, posicion)
+    textoRespuesta = "Se encontro datos para", usuarioNombreModificar    
+
+
+mostrar()
 #La seccion de buscar
 #La seccion de modificar
 #La seccion de borrar
