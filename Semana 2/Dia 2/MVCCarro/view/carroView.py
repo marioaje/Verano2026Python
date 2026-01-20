@@ -1,5 +1,5 @@
 
-
+#Recordatorio lo que esta adentro de los parentesis parametros
 def mostrandoDatos(carroObjeto):
     print(carroObjeto.mostrandoDatos)
 
