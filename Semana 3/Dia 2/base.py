@@ -56,14 +56,34 @@ def modificarPersonas(id, nombre, edad):
             
     with open(ARCHIVO, "w", newline="", encoding="utf-8") as archivoparaescribir:
         writer = csv.writer(archivoparaescribir)
-        writer.writerow(arregloVacio)
+        writer.writerows(arregloVacio)
   
     print("actualizo la persona")   
+    #print(arregloVacio)
+
+
+
+def eliminarPersonas(id):
+   # print(id, nombre, edad)
+    arregloVacio = []
+    
+    with open(ARCHIVO, "r", newline="", encoding="utf-8") as archivoparaleer:
+        reader = csv.reader(archivoparaleer)
+        
+        for item in reader:
+            if item[0] != str(id):                               
+                arregloVacio.append(item)
+            
+    with open(ARCHIVO, "w", newline="", encoding="utf-8") as archivoparaescribir:
+        writer = csv.writer(archivoparaescribir)
+        writer.writerows(arregloVacio)
+  
+    print("Elimino la persona")   
     #print(arregloVacio)
 
 print(mostrarPersonasId(3))
 #guardarPersona(3, "Isaac", 21)
 modificarPersonas(3, "Alberto", 11)
 print(mostrarPersonasId(3))
-
+eliminarPersonas(2)
 mostrarPersonas()
