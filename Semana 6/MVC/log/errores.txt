@@ -1,0 +1,2 @@
+2026-02-03 09:24:47 --> Error cargando los datos de la habitacion [Errno 2] No such file or directory: 'D:\\Github\\New folder\\Verano2026Python\\Semana 5\\Dia 1\\MVC\\data\\habitaciones.csv'
+2026-02-03 09:25:26 --> Error cargando los datos de la habitacion [Errno 2] No such file or directory: 'D:\\Github\\New folder\\Verano2026Python\\Semana 5\\Dia 1\\MVC\\data\\habitaciones.csv'

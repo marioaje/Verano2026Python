@@ -1,0 +1,13 @@
+Registrar habitaciones
+
+Registrar huéspedes
+
+Realizar reservas
+
+Mostrar disponibilidad
+
+Buscar y editar información
+
+Guardar y cargar la información desde CSV
+
+Mostrar reportes básicos
