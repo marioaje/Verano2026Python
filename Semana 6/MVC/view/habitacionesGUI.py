@@ -1,41 +1,96 @@
-import tkinter as tkGUI
-# from tkinter import ttkAuxiliar
-# from tkinter import messagebox
+import tkinter as tk
+from tkinter import ttk, messagebox
 
 
 class HabitacionesGUI:
+
+    def __init__(self, root, habitacionController):
+        self.controller = habitacionController
+        
+        self.window = tk.Toplevel(root)
+        self.window.title("Habitacion")
+        self.window.geometry("800x500")
+        self.crearFormulario()
+        self.crearTabla()
+        self.refrescarTabla()
+
+    def crearFormulario(self):
+        frame = tk.LabelFrame(self.window, text="Formulario Habitaciones", padx=10, pady=10 )
+        frame.pack(side="left", padx=10, pady=10)
+        
+        #numero
+        tk.Label(frame, text="numero").grid(row=0, column=0)
+        self.txtnumero = tk.Entry(frame)
+        self.txtnumero.grid(row=0, column=1)        
+
+        #precio
+        tk.Label(frame, text="precio").grid(row=1, column=0)
+        self.txtprecio = tk.Entry(frame)
+        self.txtprecio.grid(row=1, column=1)
+        
+        #tipo
+        tk.Label(frame, text="tipo").grid(row=2, column=0)
+        self.txttipo = tk.Entry(frame)
+        self.txttipo.grid(row=2, column=1)
+        
+        #estado
+        tk.Label(frame, text="estado").grid(row=3, column=0)
+        self.txtestado = tk.Entry(frame)
+        self.txtestado.grid(row=3, column=1)
+        
+        
+        #botones
+        tk.Button(frame, text="Registrar").grid(row=4, column=0)
+        tk.Button(frame, text="Buscar").grid(row=5, column=0)
+        tk.Button(frame, text="Cambiar").grid(row=6, column=0)
+        tk.Button(frame, text="Ordenar").grid(row=7, column=0)
     
-    def __init__(self, baseGUI):
-        self.baseGUI = baseGUI
-        self.controller = controller
+    def crearTabla(self):
+        frame = tk.LabelFrame(self.window, text="Lista Habitaciones", padx=10, pady=10 )
+        frame.pack(side="right", padx=10, pady=10)
+  
+# #datos
+        columnas = ("numero","precio","tipo","estado")        
+        self.tabla = ttk.Treeview(frame, columns= columnas, show="headings" )
         
-        self.baseGUI.title("Sistema en habitaciones")
-        self.baseGUI.geometry("700x400")
+        for col in columnas:
+            self.tabla.heading(col, text=col )
+            self.tabla.column(col, width=100)
         
-        #Paneles
-        #self.frame_form = tk(Tramas, inputs labels, textareas, choose)
-        self.frame_form = tkGUI.Frame(baseGUI )
-        self.frame_form.grid(row=0, column=0)
+        self.tabla.pack()
         
         
-        self.formularioCrear()
-        #Siempre creen funciones como las que hicimso en la vista
         
-    def formularioCrear(self):
-        tkGUI.Label(self.frame_form, text ="Etiqueta" ).grid(row=0, column=0)
-        self.campoText= tkGUI.Entry(self.frame_form)
-        self.campoText.grid(row=0, column=1)
         
- 
-if __name__ == "__main__":     
-     baseGUI = tkGUI.Tk()
-     app = HabitacionesGUI(baseGUI)
-     baseGUI.mainloop()       
- 
- 
- 
- 
- # ✔ Habitaciones
+    def refrescarTabla(self):
+        #self.tabla.delete(*self.tabla.get_children())
+        for items in self.controller.habitaciones:
+            self.tabla.insert("", tk.END, values=(items.numero,items.precio, items.tipo, items.estado ))
+#                 self.numero = numero
+#         self.precio = precio
+#         self.tipo = tipo
+#         self.estado = estado         
+# 
+# tabla = ttk.Treeview(baseGUI, columns= columnas, show="headings" )
+# tabla.heading("Id", text="Id" )
+# tabla.heading("Nombre", text="Nombre" )
+# 
+# tabla.column("Id", width=100)
+# tabla.column("Nombre", width=100)
+# 
+# tabla.insert("", tkGUI.END, values=(1, "Mario"))
+# 
+# 
+# tabla.pack()
+        
+
+#         self.idHabitacion = Habitacion.contadorId
+    #         FRAME
+    #         GRID
+    #         PACK
+        
+
+# ✔ Habitaciones
 # Registrar habitaciones
 # 
 # Listar habitaciones

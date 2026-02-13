@@ -1,13 +1,18 @@
-import tkinter as tkil
+import tkinter as tk
 
-from view.menu import menu
-from controller.HabitacionController import HabitacionController
+from controller.habitacionesController import HabitacionController
+from view.habitacionesGUI import HabitacionesGUI
+
+
+root = tk.Tk()
+root.title("Menu Principal")
+root.geometry("900x900")
+
 
 habitacionController = HabitacionController()
 
-baseGUI = tkil.Tk()
-
-menu(baseGUI, habitacionController)
+tk.Button(root, text="Gestion de Habitaciones", command=lambda: HabitacionesGUI(root, habitacionController)).pack()
 
 
-baseGUI.mainloop()
+root.mainloop()
+
