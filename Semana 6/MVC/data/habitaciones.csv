@@ -1,3 +1,6 @@
-1,100,Suite,Disponible
-12,130,Doble,Ocupada
-122,220,Sencilla,Disponible
+1,Disponible,100,Suite
+12,Ocupada,130,Doble
+122,Disponible,220,Sencilla
+23,Nueva,360,Ni idea
+2,360000,en desarrollo,Rustica
+3,2,12,Disponible
